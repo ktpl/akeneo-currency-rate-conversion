@@ -1,0 +1,8 @@
+services:
+    ktpl.currency_rate_conversion.reader.database.product_and_product_model:
+        class: 'KTPL\CurrencyRateConversionBundle\Connector\Reader\Database\MassEdit\ProductAndProductModelReader'
+        arguments:
+            - '@pim_catalog.query.product_and_product_model_query_builder_factory'
+            - '@pim_catalog.repository.channel'
+            - '@pim_catalog.repository.currency'
+            - true

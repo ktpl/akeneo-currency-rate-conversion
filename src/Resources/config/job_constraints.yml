@@ -1,0 +1,7 @@
+services:
+    ktpl.currency_rate_conversion.job.job_parameters.constraint_collection_provider.compute_currency_conversion:
+        class: 'KTPL\CurrencyRateConversionBundle\JobParameters\ConstraintCollectionProvider\ComputeCurrencyRateConversion'
+        arguments:
+            - ['compute_currency_conversion']
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }

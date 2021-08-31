@@ -1,0 +1,7 @@
+services:
+    ktpl.currency_rate_conversion.repository.currency_conversion_configuration:
+      class: 'KTPL\CurrencyRateConversionBundle\Repository\CurrencyConversionConfigurationRepository'
+      factory: 'doctrine.orm.default_entity_manager:getRepository'
+      arguments: ['KTPL\CurrencyRateConversionBundle\Entity\CurrencyConversionConfiguration']
+      tags:
+          - { name: 'pim_repository' }

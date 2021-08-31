@@ -1,0 +1,17 @@
+KTPL\CurrencyRateConversionBundle\Entity\CurrencyConversionConfiguration:
+    type: entity
+    table: ktpl_currency_rate_conversion_configuration
+    changeTrackingPolicy: DEFERRED_EXPLICIT
+    repositoryClass: KTPL\CurrencyRateConversionBundle\Repository\CurrencyConversionConfigurationRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        section:
+            type: string
+        configuration:
+            type: json_array
+            nullable: false
+    lifecycleCallbacks: {  }

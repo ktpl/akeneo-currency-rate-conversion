@@ -1,0 +1,10 @@
+# Product Csv Create
+currency_rate_conversion_index:
+    type: action
+    label: ktpl.currency_rate_conversion.acl.index
+    group_name: ktpl.acl_group.currency_rate_conversion
+
+currency_rate_conversion_execute:
+    type: action
+    label: ktpl.currency_rate_conversion.acl.execute
+    group_name: ktpl.acl_group.currency_rate_conversion

@@ -1,0 +1,20 @@
+parameters:
+    ktpl.currency_rate_conversion.tasklet.compute_currency_conversion.class: KTPL\CurrencyRateConversionBundle\Job\ComputeCurrencyRateConversionTasklet
+    ktpl.currency_rate_conversion.compute_currency_conversion.job_name: 'compute_currency_conversion'
+    ktpl.currency_rate_conversion.compute_currency_conversion.connector_name: 'Akeneo Currency Rate Conversion Mass Edit Connector'
+
+services:
+    ktpl.currency_rate_conversion.job.compute_currency_conversion:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - '%ktpl.currency_rate_conversion.compute_currency_conversion.job_name%'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@ktpl.currency_rate_conversion.step.compute_currency_conversion'
+            - true
+        tags:
+            -
+                name: akeneo_batch.job
+                connector: '%ktpl.currency_rate_conversion.compute_currency_conversion.connector_name%'
+                type: '%pim_enrich.job.mass_edit_type%'

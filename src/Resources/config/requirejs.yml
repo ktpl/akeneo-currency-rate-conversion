@@ -1,0 +1,16 @@
+config:
+    paths:
+        ktpl/currencyrateconversion/controller/configuration:            currencyrateconversion/js/controller/configuration
+        ktpl/currencyrateconversion/form/configuration:                  currencyrateconversion/js/form/configuration
+        ktpl/currencyrateconversion/form/tab/currency-configuration:     currencyrateconversion/js/form/tab/currency-configuration
+        ktpl/currencyrateconversion/form/tab/currency-api-setup:         currencyrateconversion/js/form/tab/currency-api-setup
+        ktpl/currencyrateconversion/form/configuration/save:             currencyrateconversion/js/form/save
+        ktpl/currencyrateconversion/form/configuration/launch:           currencyrateconversion/js/form/launch
+        ktpl/currencyrateconversion/template/tab/currency-configuration: currencyrateconversion/templates/tab/currency-configuration.html
+        ktpl/currencyrateconversion/template/tab/currency-api-setup:     currencyrateconversion/templates/tab/currency-api-setup.html
+    config:
+        # Controllers
+        pim/controller-registry:
+            controllers:
+                ktpl_currency_rate_conversion_configuration: #Router for above module
+                    module: ktpl/currencyrateconversion/controller/configuration #Module

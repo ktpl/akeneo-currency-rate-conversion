@@ -1,0 +1,79 @@
+<style>
+    .tooltip.fade.right.in, .tooltip.fade.right {
+        white-space: break-spaces;
+    }
+    .AknButtonList--right {
+        margin-left: 10px !important;
+    }
+
+    .AknBadge.AknBadge--warning.AknBadge--big {
+        margin-top: 10px;
+    }
+</style>
+<div class="AknHorizontalNavtab-item--active AknVerticalNavtab-item--active">
+    <div class="AknGridToolbar">
+        <div class="AknGridToolbar-center"></div>
+        <div class="AknGridToolbar-right AknButtonList AknButtonList--right" data-drop-zone="actions">
+        </div>
+    </div>
+    <div class="tabsection-content">
+        <div class="AknGridContainer">
+            <div class="AknFormContainer AknFormContainer--withPadding">
+                <div class="AknFieldContainer-header">
+                    <label class="AknFieldContainer-label control-label">
+                        <%- __('ktpl.currency_rate_conversion.form.currency_configuration.currency_api.import') %>
+                    </label>
+                    <i class="AknIconButton icon-info-sign" data-toggle="tooltip" data-placement="right" data-original-title="<%- _.__('ktpl.currency_rate_conversion.form.currency_configuration.currency_api.tooltip') %>"></i>
+                </div>
+                <div class="AknFieldContainer-inputContainer">
+                    <input
+                        id="pim_enrich_form_currency_api"
+                        type="hidden"
+                        class="select2_currency_api"
+                    >
+                    <div class="AknButtonList AknButtonList--right">
+                        <button class="AknButton AknButton--apply currency_api" name="currency_api">
+                            <%- __('ktpl.currency_rate_conversion.form.currency_configuration.currency_api.import') %>
+                        </button>
+                    </div>
+                </div>
+                <% if(!_.isUndefined(errors.currency_api) && errors.currency_api) { %>
+                    <div class="AknFieldContainer-footer footer-elements-container">
+                        <div class="AknFieldContainer-validationErrors validation-errors">
+                            <span class="AknFieldContainer-validationError">
+                                <span class="error-message"><%- errors.currency_api %></span>
+                            </span>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+            <table class="AknGrid AknGrid--unclickable table">
+                <thead>
+                    <tr>
+                        <th class="AknGrid-headerCell"><%- __('ktpl.currency_rate_conversion.form.currency_configuration.currency.property.name') %></th>
+                        <th class="AknGrid-headerCell"><%- __('ktpl.currency_rate_conversion.form.currency_configuration.currency.property.base_currency') %></th>
+                        <th class="AknGrid-headerCell"><%- __('ktpl.currency_rate_conversion.form.currency_configuration.currency.property.rate') %></th>
+                    </tr>
+                </thead>
+                <tbody class="attribute-list">
+                    <% _.each(currencies, function (currency) { %>
+                        <tr class="AknGrid-bodyRow" data-currency-code="<%- currency.code %>">
+                            <td class="AknGrid-bodyCell"><%- currency.code %></td>
+                            <td class="AknGrid-bodyCell">
+                                <% checked = formData.currency_configuration.base_currency == currency.code ? ' checked="checked"' : '' %>
+                                <input type="radio" name="base_currency" class="AknTextField<%- checked === '' ? ' AknFieldConfiguration' : ''%>" data-currency-code="<%- currency.code %>" <%- checked %>>
+                            </td>
+                            <td class="AknGrid-bodyCell">
+                                <% rate = !_.isUndefined(formData.currency_configuration.currencies_rate[currency.code]) ? formData.currency_configuration.currencies_rate[currency.code].rate : 0 %>
+                                <input type="number" name="rate" class="AknTextField<%- checked === '' ? ' AknFieldConfiguration' : '' %>" value="<%- rate %>" data-currency-code="<%- currency.code %>" <%- checked !== '' ? ' disabled="disabled"' : '' %>>
+                                <% if(!_.isUndefined(oldCurrenciesRate[currency.code])) { %>
+                                    <div class="AknBadge AknBadge--warning AknBadge--big">Old rate: <%- oldCurrenciesRate[currency.code].rate %></div>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

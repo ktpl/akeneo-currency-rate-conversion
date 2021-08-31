@@ -1,0 +1,3 @@
+services:
+    ktpl.currency_rate_conversion.converter.currency_converter:
+      class: 'KTPL\CurrencyRateConversionBundle\Components\CurrencyConverterApi'

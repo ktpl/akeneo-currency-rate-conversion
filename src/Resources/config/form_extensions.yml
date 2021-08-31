@@ -1,0 +1,76 @@
+extensions:
+    # menu item
+    pim-menu-ktpl-currency-rate-conversion-configuration:
+        module: pim/menu/item
+        parent: pim-menu-settings-navigation-block
+        aclResourceId: currency_rate_conversion_index
+        position: 1200
+        config:
+            title: pim_menu.item.ktpl.currency_rate_conversion.configuration.title
+            to: ktpl_currency_rate_conversion_configuration
+
+    # ktpl_configuration_form:
+    ktpl-currency-rate-conversion-configuration-form:
+        module: ktpl/currencyrateconversion/form/configuration
+
+    ktpl-currency-rate-conversion-configuration-breadcrumbs:
+        module: pim/common/breadcrumbs
+        parent: ktpl-currency-rate-conversion-configuration-form
+        targetZone: breadcrumbs
+        config:
+            tab: pim-menu-settings
+            item: pim-menu-ktpl-currency-rate-conversion-configuration
+
+    ktpl-currency-rate-conversion-configuration-user-navigation:
+        module: pim/menu/user-navigation
+        parent: ktpl-currency-rate-conversion-configuration-form
+        targetZone: user-menu
+        config:
+            userAccount: pim_menu.user.user_account
+            logout: pim_menu.user.logout    
+
+    # Save Button
+    ktpl-currency-rate-conversion-configuration-save:
+        module: ktpl/currencyrateconversion/form/configuration/save
+        parent: ktpl-currency-rate-conversion-configuration-form
+        targetZone: buttons
+        position: 100
+        config:
+            postUrl: ktpl_currency_rate_conversion_update_currency_conversion_configuration
+
+    # Tabs
+    ktpl-currency-rate-conversion-configuration-tabs:
+        module: pim/form/common/form-tabs
+        parent: ktpl-currency-rate-conversion-configuration-form
+        targetZone: content
+        position: 100
+
+    ktpl-currency-rate-conversion-tab-currency-configuration:
+        module: ktpl/currencyrateconversion/form/tab/currency-configuration
+        parent: ktpl-currency-rate-conversion-configuration-tabs
+        targetZone: container
+        position: 100
+    
+    ktpl-currency-rate-conversion-tab-currency-api-setup:
+        module: ktpl/currencyrateconversion/form/tab/currency-api-setup
+        parent: ktpl-currency-rate-conversion-configuration-tabs
+        targetZone: container
+        position: 110
+
+    ktpl-currency-rate-conversion-tab-currency-configuration-conversion-launch:
+        module: ktpl/currencyrateconversion/form/configuration/launch
+        parent: ktpl-currency-rate-conversion-tab-currency-configuration
+        targetZone: actions
+        aclResourceId: currency_rate_conversion_execute
+        position: 110
+        config:
+            label: ktpl.currency_rate_conversion.form.job_instance.button.launch.execute.title
+            route: ktpl_currency_rate_conversion_launch_currency_conversion
+
+    ktpl-currency-rate-conversion-configuration-form-state:
+        module: pim/form/common/state
+        parent: ktpl-currency-rate-conversion-configuration-form
+        targetZone: state
+        position: 900
+        config:
+            entity: pim_enrich.entity.product.label

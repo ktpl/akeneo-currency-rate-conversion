@@ -1,0 +1,7 @@
+ktpl:
+  currency_rate_conversion:
+    acl:
+      index: List currency conversion configuration
+      execute: Launch curency rate conversion 
+  acl_group:
+    currency_rate_conversion: Currency conversion configuration

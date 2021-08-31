@@ -1,0 +1,43 @@
+<style>
+    .AknButtonList--right {
+        margin-left: 10px !important;
+    }
+    .AknFieldContainer-header {
+        margin-top: 10px;
+    }
+</style>
+<div class="AknHorizontalNavtab-item--active AknVerticalNavtab-item--active">
+    <% _.each(formData.currency_configuration.supported_api, function (supportedApi, supportedApiName) { %>
+        <div class="tabsection-title"><%- __(supportedApi.label) %></div>
+        <div class="tabsection-content">
+            <div class="AknFormContainer AknFormContainer--withPadding">
+                <% _.each(supportedApi.fields, function (supportedApiField) { %>
+                    <div class="AknFieldContainer-header">
+                        <label class="AknFieldContainer-label control-label">
+                            <%- __(supportedApiField.label) %>
+                        </label>
+                    </div>
+                    <div class="AknFieldContainer-inputContainer">
+                        <% fieldValue = !_.isUndefined(formData.currency_configuration.supported_api_key[supportedApiName]) 
+                            && !_.isUndefined(formData.currency_configuration.supported_api_key[supportedApiName][supportedApiField.name]) 
+                            ? formData.currency_configuration.supported_api_key[supportedApiName][supportedApiField.name] : '' %>
+                        <% if(_.contains(['text', 'password', 'number'], supportedApiField.type)) { %>
+                            <input 
+                            type="<%- supportedApiField.type %>" 
+                            name="<%- supportedApiField.name %>" 
+                            class="AknTextField AknFieldConfiguration" 
+                            value="<%- fieldValue %>" 
+                            data-api-name="<%- supportedApiName %>">
+                        <% } else if(supportedApiField.type == 'select') { %>
+                            <select class="select2" name="<%- supportedApiField.name %>" data-api-name="<%- supportedApiName %>">
+                                <% _.each(supportedApiField.options, function(optionLabel, optionName){ %>
+                                    <option value="<%- optionName %>" <%- fieldValue==optionName ? 'selected' : '' %>><%- optionLabel %></option>
+                                <% }); %>
+                            </select>
+                        <% } %>
+                    </div>  
+                <% }); %>
+            </div>
+        </div>
+    <% }); %>
+</div>

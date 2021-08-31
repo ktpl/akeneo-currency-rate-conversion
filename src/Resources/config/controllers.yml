@@ -1,0 +1,13 @@
+services:
+    ktpl.currency_rate_conversion.controller.currency_conversion:
+        public: true
+        class: 'KTPL\CurrencyRateConversionBundle\Controller\CurrencyConversionController'
+        arguments:
+            - '@security.token_storage'
+            - '@akeneo_batch_queue.launcher.queue_job_launcher'
+            - '@akeneo_batch.job.job_instance_repository'
+            - '%ktpl.currency_rate_conversion.compute_currency_conversion.job_name%'
+            - '@ktpl.currency_rate_conversion.repository.currency_conversion_configuration'
+            - '@doctrine.orm.entity_manager'
+            - '@pim_catalog.repository.currency'
+            - '@ktpl.currency_rate_conversion.converter.currency_converter'

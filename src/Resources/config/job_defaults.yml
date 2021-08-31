@@ -1,0 +1,8 @@
+services:
+    ktpl.currency_rate_conversion.job.job_parameters.default_values_provider.compute_currency_conversion:
+        class: '%akeneo_batch.job.job_parameters.empty_values_provider.class%'
+        arguments:
+            -
+                - '%ktpl.currency_rate_conversion.compute_currency_conversion.job_name%'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.default_values_provider }

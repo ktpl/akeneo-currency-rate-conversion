@@ -1,0 +1,36 @@
+{
+    "name": "ktpl/akeneo-currency-rate-conversion",
+    "description": "Akeneo Currency Conversion is a module that allows you to convert one currency price to another currency based on the currency rates and process updated prices across products.",
+    "keywords": ["akeneo", "currency", "conversion", "rate"],
+    "type": "library",
+    "minimum-stability": "stable",
+    "license": "OSL-3.0",
+    "version": "5.0",
+    "authors": [
+      {
+        "name": "Krish Technolabs",
+        "email": "krishan.kant@krishtechnolabs.com"
+      }
+    ],
+    "autoload": {
+      "psr-4": {
+        "KTPL\\CurrencyRateConversionBundle\\": "src/"
+      }
+    },
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "https://github.com/ktpl/akeneo-currency-rate-conversion",
+        "branch": "master"
+      },
+      {
+        "type": "vcs",
+        "url": "https://github.com/akeneo/pim-community-dev.git",
+        "branch": "5.0",
+        "no-api": true
+      }
+    ],
+    "require": {
+      "akeneo/pim-community-dev": "^5.0"
+    }
+  }

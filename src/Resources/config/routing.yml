@@ -1,0 +1,22 @@
+ktpl_currency_rate_conversion_configuration:
+    path: /ktpl/currency-rate-conversion/configuration/
+
+ktpl_currency_rate_conversion_get_currency_conversion_configuration:
+    path: /ktpl/currency_rate_conversion/currency_conversion_configuration/get/
+    defaults: { _controller: ktpl.currency_rate_conversion.controller.currency_conversion:getCurrencyConversionConfigurationAction }
+    methods: [GET]
+
+ktpl_currency_rate_conversion_get_currency_rate:
+    path: /ktpl/currency_rate_conversion/currency_rate/get/
+    defaults: { _controller: ktpl.currency_rate_conversion.controller.currency_conversion:fetchCurrencyRatesAction }
+    methods: [POST]
+
+ktpl_currency_rate_conversion_update_currency_conversion_configuration:
+    path: /ktpl/currency_rate_conversion/currency_conversion_configuration/update/
+    defaults: { _controller: ktpl.currency_rate_conversion.controller.currency_conversion:updateCurrencyConversionConfigurationAction }
+    methods: [POST]
+
+ktpl_currency_rate_conversion_launch_currency_conversion:
+    path: /ktpl/currency_rate_conversion/launch
+    defaults: { _controller: ktpl.currency_rate_conversion.controller.currency_conversion:computeCurrencyRateConversionAction }
+    methods: [POST]

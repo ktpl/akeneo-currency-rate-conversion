@@ -1,0 +1,52 @@
+batch_jobs:
+    default_steps:
+        compute_currency_rate_conversion: Compute currency conversion
+pim_menu:
+  item:
+    ktpl:
+      currency_rate_conversion:
+        configuration:
+          title: Currency converter configuration
+ktpl:
+  currency_rate_conversion:
+    currency_api:
+      fixerio:
+        label: Fixer.io
+        field:
+          api_key:
+            label: API key
+          api_version:
+            label: API subscription type
+      currencyconverterapi:
+        label: Currency Converter API
+        field:
+          api_key:
+            label: API key
+          api_version:
+            label: API subscription type
+    form:
+      job_instance:
+          button:
+            launch:
+              execute:
+                title: Execute currency conversion
+          launch:
+            success: The job currency conversion job has been successfully launched, please run daemon consumer in the background.
+      currency_configuration:
+        title: Currency rate configuration
+        currency_api:
+          import: Import currency rates
+          tooltip: Use this option, if you want to import the currency rates from below api.
+        currency:
+          property:
+            name: Name
+            base_currency: Base currency
+            rate: Conversion rate
+        message:
+          empty_currencies: Please add currency rate for currency conversion
+        error:
+          rate: Currency rate should be more than 0
+      currency_api_setup:
+        title: Currency api setup
+pim_title:
+  ktpl_currency_rate_conversion_configuration: KTPL | Currency converter configuration
