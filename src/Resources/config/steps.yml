@@ -9,4 +9,3 @@ services:
           - '@ktpl.currency_rate_conversion.connector.processor.mass_edit.product.edit_attributes'
           - '@pim_enrich.writer.database.product_and_product_model_writer'
           - '%pim_job_product_batch_size%'
-          - '@akeneo_batch.job.job_stopper'
