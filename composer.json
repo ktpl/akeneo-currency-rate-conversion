@@ -5,7 +5,6 @@
     "type": "library",
     "minimum-stability": "stable",
     "license": "OSL-3.0",
-    "version": "5.0",
     "authors": [
       {
         "name": "Krish Technolabs",
@@ -20,14 +19,7 @@
     "repositories": [
       {
         "type": "vcs",
-        "url": "https://github.com/ktpl/akeneo-currency-rate-conversion",
-        "branch": "master"
-      },
-      {
-        "type": "vcs",
-        "url": "https://github.com/akeneo/pim-community-dev.git",
-        "branch": "5.0",
-        "no-api": true
+        "url": "git@github.com:ktpl/akeneo-currency-rate-conversion.git"
       }
     ],
     "require": {

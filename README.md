@@ -5,7 +5,13 @@ Akeneo Currency Conversion is a module that allows you to convert one currency p
 
 There is an option **Currency converter configuration** inside the Akeneo Settings menu. Inside the configuration, you can set currency rates and select the base currency for currency rate conversion.
 
-You can update the currency rates manually as well as using currency API. For fetching the currency rated from API, our extension support two currency APIs **Fixer Io(https://fixer.io/) and Currency Converter API(https://free.currencyconverterapi.com/)**. For this, you just need to get your APIs and setup in the configuration and then you can fetch the currency rates.
+You can update the currency rates manually as well as using currency API.
+
+For now, we are providing the support for the two currency rates APIs as given below:
+ 1) **Fixer Io(https://fixer.io/)**
+ 2) **Currency Converter API(https://free.currencyconverterapi.com/)**
+
+For this, you just need to get your APIs and setup in the configuration and then you can fetch the currency rates.
 
 Installation instructions
 -------------------------
@@ -35,8 +41,9 @@ php bin/console ca:cl && php bin/console ktpl:install:currency-rate-conversion
 
 How to use it
 --------------
-* To see how Akeneo PIM currency conversion works, the first step you need to do is set the base currency and the currency rates.
-For the setup, click on the Currency converter configuration navigation in the Akeneo Settings Menu.
+* After installation of the connector, you will see **Currency converter configuration** navigation inside Akeneo settings menu.
+
+* Now, click on the **Currency converter configuration** navigation and here you need to set the base currency and the currency rates.
 ![Akeneo Currency Conversion Menu](./screenshots/currency-conversion-menu.png "Akeneo Currency Conversion Menu Screenshot")
 
 * Also, you can fetch the updated currency using the currency APIs
