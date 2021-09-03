@@ -20,14 +20,14 @@ Installation instructions
 ```bash
 composer require krishtechnolabs/akeneo-currency-rate-conversion
 ```
-* Register the module in the app/AppKernel.php and inside the registerProjectBundles function
+* Register the module in the config/bundles.php
 ``` php
-new KTPL\CurrencyRateConversionBundle\CurrencyRateConversionBundle(),
+KTPL\CurrencyRateConversionBundle\CurrencyRateConversionBundle::class => ['all' => true],
 ```
 * Now that you have activated and configured the bundle, now all you need to do is import the AkeneCurrencyRateConversionBundleoTrashBundle routing files.
 
 ``` yml
-# app/config/routing.yml
+# config/routes/ktpl_currency_conversion.yml
 ktpl_currency_conversion:
     resource: "@CurrencyRateConversionBundle/Resources/config/routing.yml"
     prefix: /

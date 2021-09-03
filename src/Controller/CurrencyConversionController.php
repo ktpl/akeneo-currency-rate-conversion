@@ -17,7 +17,8 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 
 class CurrencyConversionController extends Controller
 {
-    /** @var string*/
+    const JOB_CODE = "compute_currency_conversion";
+
     const CURRENCY_CONFIGURATION_SECTION = 'currency_configuration';
 
     /** @var TokenStorageInterface */
@@ -171,6 +172,9 @@ class CurrencyConversionController extends Controller
             'supported_api_key' => [],
             'supported_api' => ApiResources::SUPPORTED_API,
         ];
+
+        $currencyConversionConfiguration['code'] = self::JOB_CODE;
+        
         $result = $this->currencyConfigurationRepository->findOneBySection(self::CURRENCY_CONFIGURATION_SECTION);
         if ($result) {
             $configuration = $result->getConfiguration();
